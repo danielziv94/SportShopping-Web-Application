@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const Card = (props)=>{
+const Card = ({label})=>{
     return(
         <Container>
-            <img src="/src/assets/sportAcc.jpg" alt={props.label}/>
-            {props.label}
+            <Image src={require("../assets/sportAcc.jpg")} alt={label} />
+            {label}
         </Container>
     )
 };
@@ -12,15 +12,21 @@ const Card = (props)=>{
 const Container = styled.div`
     height: 100%;
     width: 100%;
+    max-width: 3ram;
+    max-height: 3ram;
     border-radius: 5px;
     text-align: center;
     background-color: #f5f5cb;
     scale: 0.9;
-    transition: 250ms;
+    transition: all 250ms;
     &:hover{
         scale:1;
         filter: drop-shadow(2px 4px 6px black);
     }
 `
-
+const Image = styled.img`
+    object-fit: cover;
+    width: 100%;
+    max-width: 100%;
+`
 export default Card;
